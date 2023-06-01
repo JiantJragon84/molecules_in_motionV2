@@ -2,8 +2,6 @@ package com.example.molecules_in_motion;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,7 +16,6 @@ import java.util.ResourceBundle;
 
 public class GasModelController implements Initializable {
 
-    private GraphicsContext gc;
     @FXML
     private Text collisionCount;
     @FXML
@@ -26,18 +23,15 @@ public class GasModelController implements Initializable {
 
     public boolean idealGas = false;
 
-    private Timeline collisionTimeline;
     public Queue<Integer> collisionCounts;
     public static int collisionsInCurrentSecond = 0;
-
-    private int averageCollisions;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         collisionCounts = new LinkedList<>();
         collisionCount.setText("Collisions per second (Pressure): 0");
-        collisionTimeline = new Timeline(
+        Timeline collisionTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     collisionCounts.offer(collisionsInCurrentSecond);
                     if (collisionCounts.size() > 3) {
@@ -54,7 +48,6 @@ public class GasModelController implements Initializable {
     }
 
     public void setCanvas(GraphicsContext gc){
-        this.gc = gc;
     }
 
     public void onIdealClicked(){

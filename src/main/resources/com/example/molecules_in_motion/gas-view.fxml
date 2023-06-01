@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="root"  alignment="CENTER" gridLinesVisible="false" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+  <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+  <Canvas id="gasCanvas" height="100.0" width="300.0" GridPane.columnSpan="2147483647" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0">
+  </Canvas>
+  <Button onAction="#onTempUpClicked" text="Increase Temperature" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+  <Button onAction="#onTempDownClicked" text="Decrease Temperature" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+  <Text fx:id="collisionCount" text="temp" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="1">
+     <buttons>
+        <Button fx:id="addParticle" onAction="#onAddClicked" text="Add Particle" />
+       <Button mnemonicParsing="false" onAction="#onAdd5" text="Add x5" />
+         <Button mnemonicParsing="false" onAction="#onAdd10" text="Add x10" />
+     </buttons>
+   </ButtonBar>
+   <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
+     <buttons>
+        <Button fx:id="removeParticle" onAction="#onRemoveClicked" text="Remove Particle" />
+         <Button mnemonicParsing="false" onAction="#onRemove5" text="Remove x5" />
+       <Button mnemonicParsing="false" onAction="#onRemove10" text="Remove x10" />
+     </buttons>
+   </ButtonBar>
+   <CheckBox fx:id="idealGasCheck"  mnemonicParsing="false" text="Ideal gas" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#onIdealClicked"/>
+   <columnConstraints>
+      <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" percentWidth="33.0" />
+      <ColumnConstraints percentWidth="33.0" />
+      <ColumnConstraints percentWidth="33.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

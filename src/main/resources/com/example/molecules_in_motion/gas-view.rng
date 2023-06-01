@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="GridPane">
+            <attribute name="alignment">
+                <data type="NCName"/>
+            </attribute>
+            <attribute name="gridLinesVisible">
+                <data type="boolean"/>
+            </attribute>
+            <attribute name="hgap">
+                <data type="integer"/>
+            </attribute>
+            <attribute name="vgap">
+                <data type="integer"/>
+            </attribute>
+            <element name="padding">
+                <ref name="Insets"/>
+            </element>
+            <element name="Canvas">
+                <attribute name="GridPane.columnIndex">
+                    <data type="integer"/>
+                </attribute>
+                <attribute name="GridPane.columnSpan">
+                    <data type="integer"/>
+                </attribute>
+                <attribute name="GridPane.halignment">
+                    <data type="NCName"/>
+                </attribute>
+                <attribute name="GridPane.hgrow">
+                    <data type="NCName"/>
+                </attribute>
+                <attribute name="GridPane.rowIndex">
+                    <data type="integer"/>
+                </attribute>
+                <attribute name="GridPane.valignment">
+                    <data type="NCName"/>
+                </attribute>
+                <attribute name="height">
+                    <data type="decimal"/>
+                </attribute>
+                <attribute name="id">
+                    <data type="NCName"/>
+                </attribute>
+                <attribute name="width">
+                    <data type="decimal"/>
+                </attribute>
+                <element name="GridPane.margin">
+                    <ref name="Insets"/>
+                </element>
+            </element>
+            <oneOrMore>
+                <ref name="Button"/>
+            </oneOrMore>
+            <element name="Text">
+                <attribute name="GridPane.columnIndex">
+                    <data type="integer"/>
+                </attribute>
+                <attribute name="GridPane.rowIndex">
+                    <data type="integer"/>
+                </attribute>
+                <attribute name="text">
+                    <data type="NCName"/>
+                </attribute>
+                <attribute name="fx:id">
+                    <data type="NCName"/>
+                </attribute>
+            </element>
+            <oneOrMore>
+                <element name="ButtonBar">
+                    <attribute name="GridPane.halignment">
+                        <data type="NCName"/>
+                    </attribute>
+                    <attribute name="GridPane.rowIndex">
+                        <data type="integer"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="GridPane.valignment">
+                            <data type="NCName"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <element name="buttons">
+                        <oneOrMore>
+                            <ref name="Button"/>
+                        </oneOrMore>
+                    </element>
+                </element>
+            </oneOrMore>
+            <element name="columnConstraints">
+                <oneOrMore>
+                    <element name="ColumnConstraints">
+                        <empty/>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="rowConstraints">
+                <oneOrMore>
+                    <element name="RowConstraints">
+                        <empty/>
+                    </element>
+                </oneOrMore>
+            </element>
+        </element>
+    </start>
+    <define name="Insets">
+        <element name="Insets">
+            <attribute name="bottom">
+                <data type="decimal"/>
+            </attribute>
+            <attribute name="left">
+                <data type="decimal"/>
+            </attribute>
+            <attribute name="right">
+                <data type="decimal"/>
+            </attribute>
+            <attribute name="top">
+                <data type="decimal"/>
+            </attribute>
+        </element>
+    </define>
+    <define name="Button">
+        <element name="Button">
+            <optional>
+                <attribute name="GridPane.columnIndex">
+                    <data type="integer"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="GridPane.rowIndex">
+                    <data type="integer"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="mnemonicParsing">
+                    <data type="boolean"/>
+                </attribute>
+            </optional>
+            <attribute name="onAction"/>
+            <attribute name="text"/>
+            <optional>
+                <attribute name="fx:id">
+                    <data type="NCName"/>
+                </attribute>
+            </optional>
+        </element>
+    </define>
+</grammar>
